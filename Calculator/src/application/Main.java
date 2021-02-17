@@ -23,7 +23,9 @@ import application.*;
 
 public class Main extends Application {
 	
-	Label lbl = new Label();
+	public static Label lbl = new Label();
+	public static StringBuilder numbers = new StringBuilder("");
+	public static String str1, str2;
 	public static void main(String[] args) {
 		
 		launch(args);
@@ -37,6 +39,7 @@ public class Main extends Application {
 		BorderPane mainPane = new BorderPane();
 		mainPane.setTop(getHBox());
 		mainPane.setCenter(getGridPane());
+		mainPane.setStyle("-fx-background-color: black");
 		
 		Scene scene = new Scene(mainPane,250,250);
 		primaryStage.setTitle("Calculator");
@@ -48,7 +51,7 @@ public class Main extends Application {
 	public HBox getHBox() {
 		HBox hBox = new HBox(10);
 		hBox.setPadding(new Insets(15, 15, 15, 15));
-		hBox.setStyle("-fx-background-color: gray");
+		hBox.setStyle("-fx-background-color: pink");
 		
 		hBox.getChildren().add(lbl);
 		return hBox;
@@ -58,7 +61,7 @@ public class Main extends Application {
 	public GridPane getGridPane() {
 		Operations ansFinal = new Operations();
 		Button bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt0,btDot,btPlus,bteq,btDiv,btMul,btSub;
-		StringBuilder numbers = new StringBuilder("");
+		//StringBuilder numbers = new StringBuilder("");
 		//add answer = new add();
 		// TODO Auto-generated method stub
 		GridPane pane = new GridPane();
@@ -67,39 +70,85 @@ public class Main extends Application {
 		pane.setVgap(15);
 		
 		bt1 = new Button("1");
-		bt1.setOnMouseClicked(e -> numbers.append('1'));
+		bt1.setOnMouseClicked(e -> {numbers.append('1');
+		ansFinal.printStmt(numbers,lbl);
+		});
+		
 		bt2 = new Button("2");
-		bt2.setOnMouseClicked(e -> numbers.append('2'));
+		bt2.setOnMouseClicked(e -> {numbers.append('2');
+			ansFinal.printStmt(numbers,lbl);
+		});
+		
 		bt3 = new Button("3");
-		bt3.setOnMouseClicked(e -> numbers.append('3'));
+		bt3.setOnMouseClicked(e -> {numbers.append('3');
+		ansFinal.printStmt(numbers,lbl);
+		});
+		
 		bt4 = new Button("4");
-		bt4.setOnMouseClicked(e -> numbers.append('4'));
+		bt4.setOnMouseClicked(e -> {numbers.append('4');
+		ansFinal.printStmt(numbers,lbl);
+		});
+		
 		bt5 = new Button("5");
-		bt5.setOnMouseClicked(e -> numbers.append('5'));
+		bt5.setOnMouseClicked(e -> {numbers.append('5');
+		ansFinal.printStmt(numbers,lbl);
+		});
+		
 		bt6 = new Button("6");
-		bt6.setOnMouseClicked(e -> numbers.append('6'));
+		bt6.setOnMouseClicked(e -> {numbers.append('6');
+		ansFinal.printStmt(numbers,lbl);
+		});
+		
 		bt7 = new Button("7");
-		bt7.setOnMouseClicked(e -> numbers.append('7'));
+		bt7.setOnMouseClicked(e -> {numbers.append('7');
+		ansFinal.printStmt(numbers,lbl);
+		});
+		
 		bt8 = new Button("8");
-		bt8.setOnMouseClicked(e -> numbers.append('8'));
+		bt8.setOnMouseClicked(e -> {numbers.append('8');
+		ansFinal.printStmt(numbers,lbl);
+		});
+		
 		bt9 = new Button("9");
-		bt9.setOnMouseClicked(e -> numbers.append('9'));
+		bt9.setOnMouseClicked(e -> {numbers.append('9');
+		ansFinal.printStmt(numbers,lbl);
+		});
+		
 		bt0 = new Button("0");
-		bt0.setOnMouseClicked(e -> numbers.append('0'));
+		bt0.setOnMouseClicked(e -> {numbers.append('0');
+		ansFinal.printStmt(numbers,lbl);
+		});
 		btDot = new Button(".");
-		btDot.setOnMouseClicked(e -> numbers.append('.'));
+		btDot.setOnMouseClicked(e -> {numbers.append('.');
+		ansFinal.printStmt(numbers,lbl);
+		});
+		
 		btPlus = new Button("+");
-		btPlus.setOnMouseClicked(e -> numbers.append('+'));
+		btPlus.setOnMouseClicked(e -> {numbers.append('+');
+		ansFinal.printStmt(numbers,lbl);
+		});
+		
 		bteq = new Button("=");
 		bteq.setOnMouseClicked(e -> {numbers.append('=');
-		ansFinal.printStmt(numbers);
+		ansFinal.printStmt(numbers,lbl);
+		
 		});
+		
 		btMul = new Button("*");
-		btMul.setOnMouseClicked(e -> numbers.append('*'));
+		btMul.setOnMouseClicked(e -> {numbers.append('*');
+		ansFinal.printStmt(numbers,lbl);
+		});
+		
 		btSub = new Button("-");
-		btSub.setOnMouseClicked(e -> numbers.append('-'));
+		btSub.setOnMouseClicked(e -> {numbers.append('-');
+		ansFinal.printStmt(numbers,lbl);
+		
+		});
+		
 		btDiv = new Button("/");
-		btDiv.setOnMouseClicked(e -> numbers.append('/'));
+		btDiv.setOnMouseClicked(e -> {numbers.append('/');
+		ansFinal.printStmt(numbers,lbl);
+		});
 		
 		
 		
